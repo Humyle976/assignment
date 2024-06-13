@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div>
+        <header id="head">
+            <h1>Task Manager</h1>
+        </header>
+        <button id="task-create-button">Add A Task</button>
+        <div class="task-input">
+            <label for="task-title">Task Title</label>
+            <input type="text" id="task-title" name="task-title" placeholder="Your Task Title Here"><br>
+            <label for="task-description">Task Description</label>
+            <input type="text" name="task-desc" id="task-description" placeholder="Your Task Description Here"></textarea><br>
+            <label for="start-date">Start Date</label>
+            <input type="text" placeholder="MM/DD/YY" id="start-date" name="start-date" onfocus="(this.type='date')"><br>
+            <label for="end-date">End Date</label>
+            <input type="text" placeholder="MM/DD/YY" id="end-date" name="end-date"onfocus="(this.type='date')"><br>
+            <button id="add-task-button">Add</button>
+            <button id="undo-button">Back</button>
+        </div>
+        <ul>
+        </ul>
+    </div>
+    <script src="script.js"></script> 
+</body>
+</html>
