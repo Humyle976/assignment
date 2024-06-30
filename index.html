@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,26 +6,143 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <div class="page">
-        <header class="header">
+        <div class="confirm-box-container">
+            <div class="confirm-box">
+                <p class="confirm-msg">Are You Sure You Want To Delete This Task?</p>
+                <div class="confirm-button-container">
+                    <button class="confirm-yes">Yes</button>
+                    <button class="confirm-no">No</button>
+                </div>
+            </div>
+        </div>
+        <div class="task-description-container">
+            <div class="task-description-box">
+                <div class="task-description">
+                    <label >Task Title</label>
+                    <input type="text" id="description-box-title" disabled>
+                    <label >Start Date</label>
+                    <input type="date" id="description-box-sDate"disabled>
+                    <label >End Date</label>
+                    <input type="date" id="description-box-eDate"disabled>
+                    <label >Description</label>
+                    <textarea id="description-box-desc"disabled></textarea>
+                    <label for="description-box-task-priority">Priority</label>
+                    <select id="description-box-task-priority" disabled>
+                        <option class="green">Low</option>
+                        <option class="yellow">Medium</option>
+                        <option class="red">High</option>
+                    </select>
+                    <label for="description-box-task-category">Category</label>
+                    <select id="description-box-task-category" disabled>
+                        <option>Work</option>
+                        <option>Urgent</option>
+                        <option>Personal</option>
+                    </select>
+                    <div class="button-container">
+                        <button class="description-box-edit">Edit</button>
+                        <button class="description-box-confirm">X</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <header class="header"> 
             <img src="logo.png" class="logo">
         </header>
-        <button id="task-create-button"><span style="font-size: 33px;">+</span>&nbsp;&nbsp;Add Task</button>
+        <div class="add-task">
+            <button class="add-task-button fa-thin fa-plus">Add Task</button>
+            <div class="filter">
+                <h1>Filter</h1>
+                <i class="fa-solid fa-filter"></i>            
+            </div>
+            <div class="sort">
+                <div class="sort-button">
+                    <h1>Sort</h1>
+                    <i class="fa-solid fa-sort-down"></i>
+                </div>
+                <div class="drop-down">
+                    <select multiple class="sort-option">
+                        <option >Low To High</option>
+                        <option >High To Low</option>
+                        <option >Due Date</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="filter-container">
+            <div class="filter-box">
+                <div class="filter-tasks">
+                    <div class="filter-status">
+                        <p class="filter-name">Status:</p>
+                        <label for="one">
+                            <input type="radio" name="category" value="All" checked/>All
+                        </label>
+                        <label for="two">
+                            <input type="radio" name="category" value="InProgress"/>In Progress
+                        </label>
+                        <label for="three">
+                            <input type="radio" name="category" value="Completed"/>Completed
+                        </label>
+                    </div>
+                    <div class="filter-priority">
+                        <p class="filter-name">Priority:</p>
+                        <label >
+                            <input type="checkbox" value="Low">Low
+                        </label>
+                        <label >
+                            <input type="checkbox" value="Medium">Medium
+                        </label>
+                        <label >
+                            <input type="checkbox" value="High">High
+                        </label>
+                    </div>
+                    <div class="filter-category">
+                        <p class="filter-name">Category</p>
+                        <label >
+                            <input type="checkbox" value="Work"/>Work
+                        </label>
+                        <label >
+                            <input type="checkbox" value="Urgent"/>Urgent
+                        </label>
+                        <label >
+                            <input type="checkbox" value="Personal"/>Personal
+                        </label>
+                    </div>
+                    <button class="save-filter-button">Apply</button>
+                </div>
+            </div>
+        </div>
+        <h3 class="no-task">No Tasks Yet</h3>
         <div class="task-input-container">
-            <div class="task-input">
-                <label for="task-title">Task Title</label>
-                <input type="text" id="task-title" name="task-title" placeholder="Your Task Title Here"/><br>
-                <label for="task-description">Task Description</label>
-                <textarea name="" id="task-description" placeholder="Your Task Description Here"></textarea><br/>
-                <label for="start-date">Start Date</label>
-                <input type="text" placeholder="MM/DD/YY" id= "start-date" name="start-date" onfocus="(this.type='date')"/></br/>
-                <label for="end-date">End Date</label>
-                <input type="text" placeholder="MM/DD/YY" id="end-date" name="end-date"onfocus="(this.type='date')"/><br/>
-                <div class="task-form-button">
-                    <button id="add-task-button">Add</button>
-                    <button id="undo-button">Back</button>
+            <div class="task-input-box">
+                <div class="task-input">
+                    <label for="task-title">Task Title</label>
+                    <input type="text" id="task-title" name="task-title" placeholder="Your Task Title Here" maxlength="200"/>
+                    <label for="start-date">Start Date</label>
+                    <input type="text" placeholder="MM/DD/YY" id= "start-date" name="start-date" onfocus="(this.type='date')"/>
+                    <label for="end-date">End Date</label>
+                    <input type="text" placeholder="MM/DD/YY" id="end-date" name="end-date"onfocus="(this.type='date')"/>
+                    <label for="task-description">Task Description</label>
+                    <textarea id="task-description" placeholder="Your Task Description Here"></textarea>
+                    <label for="task-priority">Priority</label>
+                    <select id="task-priority">
+                        <option class="green">Low</option>
+                        <option class="yellow">Medium</option>
+                        <option class="red">High</option>
+                    </select>
+                    <label for="task-category">Category</label>
+                    <select id="task-category">
+                        <option>Work</option>
+                        <option>Urgent</option>
+                        <option>Personal</option>
+                    </select>
+                    <div class="task-input-button-container">
+                        <button class="save-task-button">Save</button>
+                        <button class="back-button">Back</button>
+                    </div>
                 </div>
             </div>
         </div>
